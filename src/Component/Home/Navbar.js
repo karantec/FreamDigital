@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,13 +35,13 @@ const HeroSection = () => {
       <nav className="absolute top-6 left-1/2 transform -translate-x-1/2 hidden md:flex items-center  bg-opacity-90 rounded-full px-6 py-2 shadow-md z-10">
         {["About Us", "Portfolio", "Services", "Products", "Contact Us"].map(
           (item, index) => (
-            <a
+            <Link 
               key={index}
-              href="#"
+              to="#"
               className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-blue-600"
             >
               {item}
-            </a>
+            </Link>
           )
         )}
       </nav>
@@ -52,9 +53,9 @@ const HeroSection = () => {
           className="bg-white bg-opacity-90 p-2 rounded-full shadow-md"
         >
           {menuOpen ? (
-            <X className="h-6 w-6 text-gray-800" />
+            <X className="h-6 w-6 text-gray-500" />
           ) : (
-            <Menu className="h-6 w-6 text-gray-800" />
+            <Menu className="h-6 w-6 text-gray-500" />
           )}
         </button>
       </div>
@@ -73,13 +74,13 @@ const HeroSection = () => {
         <div className="flex flex-col space-y-4 p-4">
           {["About Us", "Portfolio", "Services", "Products", "Contact Us"].map(
             (item, index) => (
-              <a
+                <Link 
                 key={index}
-                href="#"
-                className="text-lg font-medium text-gray-800 hover:text-blue-600 border-b border-gray-200 pb-2"
+                to="#"
+                className="px-4 py-2 text-md uppercase font-medium text-white hover:text-blue-600"
               >
                 {item}
-              </a>
+              </Link>
             )
           )}
         </div>
