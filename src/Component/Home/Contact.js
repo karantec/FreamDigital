@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Paperclip, ArrowRight } from 'lucide-react';
+import { FaWhatsapp, FaLinkedin } from 'react-icons/fa';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -27,7 +28,6 @@ const Contact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Form submitted:', formData);
-        // Add your form submission logic here
     };
 
     return (
@@ -41,6 +41,7 @@ const Contact = () => {
                         Drop us a<br />line
                     </h1>
 
+                    {/* Email Section */}
                     <div className="flex items-center mb-8">
                         <p className="text-gray-300">Kumarmanas8084@Gmail.Com</p>
                         <button className="ml-2 text-white">
@@ -51,19 +52,25 @@ const Contact = () => {
                         </button>
                     </div>
 
+                    {/* Social Links */}
                     <div className="flex space-x-4">
-                        <a href="#" className="flex items-center space-x-2 border border-gray-700 px-4 py-2 rounded-md hover:bg-gray-800 transition-colors">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                            <span>Whatsapp</span>
+                        <a 
+                            href="https://wa.me/yourwhatsappnumber" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="flex items-center space-x-2 border border-gray-700 px-4 py-2 rounded-md hover:bg-green-600 hover:text-white transition-colors"
+                        >
+                            <FaWhatsapp size={20} />
+                            <span>WhatsApp</span>
                         </a>
-                        <a href="#" className="flex items-center space-x-2 border border-gray-700 px-4 py-2 rounded-md hover:bg-gray-800 transition-colors">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                <rect x="2" y="9" width="4" height="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                <circle cx="4" cy="4" r="2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
+
+                        <a 
+                            href="https://linkedin.com/in/yourprofile" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="flex items-center space-x-2 border border-gray-700 px-4 py-2 rounded-md hover:bg-blue-700 hover:text-white transition-colors"
+                        >
+                            <FaLinkedin size={20} />
                             <span>LinkedIn</span>
                         </a>
                     </div>
@@ -143,7 +150,7 @@ const Contact = () => {
 
                         <button
                             type="submit"
-                            className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-full flex items-center justify-center transition-colors"
+                            className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-full flex items-center justify-center transition-colors shadow-lg shadow-indigo-500/50"
                         >
                             <span className="mr-2">Submit</span>
                             <ArrowRight size={18} />

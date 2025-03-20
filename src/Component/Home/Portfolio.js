@@ -104,7 +104,7 @@ const Portfolio = () => {
         : portfolioItems.filter(item => item.category === activeCategory);
 
     return (
-        <div className="bg-white min-h-screen text-white py-24 px-4">
+        <div className="bg-black min-h-screen text-white py-24 px-4">
             <div className="max-w-6xl mx-auto">
                 {/* Section Header */}
                 <div className="flex flex-col md:flex-row justify-between items-center mb-16">
@@ -140,15 +140,7 @@ const Portfolio = () => {
                 </div>
 
                 {/* CTA Section */}
-                <div className="mt-20 text-center">
-                    <h3 className="text-2xl font-semibold mb-4">Ready to Start Your Project?</h3>
-                    <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-                        Let's collaborate to bring your vision to life with our user-focused, value-based, data-driven approach.
-                    </p>
-                    <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-full transition">
-                        Get in touch
-                    </button>
-                </div>
+                
             </div>
 
             {/* Background effects */}

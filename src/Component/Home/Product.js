@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const ProductCard = ({ title, imageSrc, isActive }) => {
     return (
@@ -30,65 +31,42 @@ const ProductNavItem = ({ title, isActive, onClick }) => {
 const OurProducts = () => {
     const [activeCategory, setActiveCategory] = useState('all');
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [slideWidth, setSlideWidth] = useState(33.33); // Default width percentage for desktop (3 items)
+    const [slideWidth, setSlideWidth] = useState(33.33); // Default width for desktop
+    const [products, setProducts] = useState([]);
 
     const categories = [
-        { id: 'all', title: 'Our Software' },
-        { id: 'security', title: 'Security And Computing Solutions' },
-        { id: 'atl', title: 'ATL' },
-        { id: 'business', title: 'Business' },
+        { id: 'all', title: 'All Products' },
+        { id: 'Our Software', title: 'Our Software' },
+        { id: 'Security And Computing Solutions', title: 'Security And Computing Solutions' },
+        { id: 'ATL', title: 'ATL' },
+        { id: 'Business', title: 'Business' },
     ];
 
-    const products = [
-        {
-            id: 1,
-            title: 'Restaurant Management System',
-            imageSrc: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&auto=format&fit=crop',
-            category: 'business'
-        },
-        {
-            id: 2,
-            title: 'School Management System',
-            imageSrc: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&auto=format&fit=crop',
-            category: 'business'
-        },
-        {
-            id: 3,
-            title: 'Billing And POS Management',
-            imageSrc: 'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=800&auto=format&fit=crop',
-            category: 'business'
-        },
-        {
-            id: 4,
-            title: 'Cybersecurity Suite',
-            imageSrc: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&auto=format&fit=crop',
-            category: 'security'
-        },
-        {
-            id: 5,
-            title: 'Cloud Computing Solution',
-            imageSrc: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&auto=format&fit=crop',
-            category: 'security'
-        }
-    ];
+    // Fetch product data from API
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const response = await axios.get('https://framedigitalbackend.onrender.com/product/Product');
+                setProducts(response.data);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        };
+
+        fetchProducts();
+    }, []);
 
     // Filter products based on active category
     const filteredProducts = activeCategory === 'all'
         ? products
-        : products.filter(product => product.category.toLowerCase() === activeCategory.toLowerCase());
+        : products.filter(product => product.category === activeCategory);
 
-    // Create a duplicated array for infinite scroll effect
-    // We duplicate items to ensure we always have enough items to display
     const duplicatedProducts = [...filteredProducts, ...filteredProducts, ...filteredProducts];
 
     // Update slide width based on screen size
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth < 768) {
-                setSlideWidth(100); // One item at a time on mobile
-            } else {
-                setSlideWidth(33.33); // Three items at a time on desktop
-            }
+            setSlideWidth(window.innerWidth < 768 ? 100 : 33.33);
         };
 
         handleResize(); // Set initial value
@@ -104,7 +82,7 @@ const OurProducts = () => {
         setCurrentSlide(0);
     }, [activeCategory]);
 
-    // True infinite scroll functions
+    // Infinite scroll functions
     const nextSlide = () => {
         const totalItems = filteredProducts.length;
         if (totalItems === 0) return;
@@ -166,7 +144,7 @@ const OurProducts = () => {
                         ))}
                     </div>
 
-                    {/* Product Slider - Always shows items in an infinite loop */}
+                    {/* Product Slider */}
                     <div className="md:w-3/4 overflow-hidden relative">
                         <div
                             className="flex transition-transform duration-500 ease-in-out"
@@ -174,16 +152,15 @@ const OurProducts = () => {
                                 transform: `translateX(-${currentSlide * slideWidth}%)`,
                             }}
                         >
-                            {/* We use the duplicated array to ensure we always have items */}
                             {duplicatedProducts.map((product, index) => (
                                 <div
-                                    key={`${product.id}-${index}`}
+                                    key={`${product._id}-${index}`}
                                     className="px-2"
                                     style={{ minWidth: `${slideWidth}%` }}
                                 >
                                     <ProductCard
-                                        title={product.title}
-                                        imageSrc={product.imageSrc}
+                                        title={product.name}
+                                        imageSrc={product.image}
                                         isActive={index % filteredProducts.length === currentSlide}
                                     />
                                 </div>
