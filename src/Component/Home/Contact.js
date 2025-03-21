@@ -31,6 +31,8 @@ const Contact = () => {
     };
 
     return (
+
+        <section id="contactus">
         <div className="bg-gray-900 text-white py-16 px-8">
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
                 {/* Left Column */}
@@ -159,6 +161,7 @@ const Contact = () => {
                 </div>
             </div>
         </div>
+        </section>
     );
 };
 

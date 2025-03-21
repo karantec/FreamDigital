@@ -31,7 +31,7 @@ const App = () => {
       <Career />
       <OurTeam />
       <TestimonialContactSection/>
-      <Contact />
+      <Contact/>
 
   
 

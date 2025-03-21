@@ -60,42 +60,42 @@ const Portfolio = () => {
             title: 'Modern E-commerce Platform',
             category: 'Web Development',
             description: 'Complete e-commerce solution with cutting-edge UI and seamless payment integration.',
-            image: null
+           
         },
         {
             id: 2,
             title: 'Financial App Redesign',
             category: 'UI/UX Design',
             description: 'Comprehensive redesign of a financial management application focusing on user experience.',
-            image: null
+            
         },
         {
             id: 3,
             title: 'Tech Startup Brand Identity',
             category: 'Branding',
             description: 'Complete brand identity package for an emerging tech startup in the AI space.',
-            image: null
+            
         },
         {
             id: 4,
             title: 'Digital Marketing Campaign',
             category: 'Marketing',
             description: 'Integrated digital campaign that increased client conversion rates by 43%.',
-            image: null
+            
         },
         {
             id: 5,
             title: 'Healthcare Provider Platform',
             category: 'Web Development',
             description: 'Secure and accessible platform connecting patients with healthcare providers.',
-            image: null
+           
         },
         {
             id: 6,
             title: 'Luxury Brand Experience',
             category: 'UI/UX Design',
             description: 'Immersive digital experience for a high-end luxury goods manufacturer.',
-            image: null
+           
         }
     ];
 
@@ -104,49 +104,49 @@ const Portfolio = () => {
         : portfolioItems.filter(item => item.category === activeCategory);
 
     return (
-        <div className="bg-black min-h-screen text-white py-24 px-4">
-            <div className="max-w-6xl mx-auto">
-                {/* Section Header */}
-                <div className="flex flex-col md:flex-row justify-between items-center mb-16">
-                    <div>
-                        <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Portfolio</h2>
-                        <p className="text-gray-400 max-w-xl">
-                            Explore our latest projects where we've transformed ideas into impactful digital solutions.
-                            Each project represents our commitment to quality, innovation, and client satisfaction.
-                        </p>
-                    </div>
+        <>
+            <section id="portfolio">
+                <div className="bg-black min-h-screen text-white py-24 px-4">
+                    <div className="max-w-6xl mx-auto">
+                        {/* Section Header */}
+                        <div className="flex flex-col md:flex-row justify-between items-center mb-16">
+                            <div>
+                                <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Portfolio</h2>
+                                <p className="text-gray-400 max-w-xl">
+                                    Explore our latest projects where we've transformed ideas into impactful digital solutions.
+                                    Each project represents our commitment to quality, innovation, and client satisfaction.
+                                </p>
+                            </div>
 
-                    {/* 3D element for visual interest */}
-                    <div className="hidden md:block">
-                        <div className="w-20 h-20 relative">
-                            <img src='/cube.svg' alt='3D Cube' className='absolute top-0 left-0 w-full h-full' />
-                            {/* <img src='/cube1.svg' alt='3D Cube' className='absolute top-0 left-0 w-full h-full' /> */}
+                            {/* 3D element for visual interest */}
+                            <div className="hidden md:block">
+                                <div className="w-20 h-20 relative">
+                                    <img src='/cube.svg' alt='3D Cube' className='absolute top-0 left-0 w-full h-full' />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Filter Controls */}
+                        <PortfolioFilter
+                            categories={categories}
+                            activeCategory={activeCategory}
+                            onCategoryChange={setActiveCategory}
+                        />
+
+                        {/* Portfolio Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {filteredItems.map((item) => (
+                                <PortfolioItem key={item.id} {...item} />
+                            ))}
                         </div>
                     </div>
+
+                    {/* Background effects */}
+                    <div className="fixed -bottom-40 -right-40 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl opacity-10 z-0"></div>
+                    <div className="fixed top-1/4 -left-20 w-64 h-64 bg-purple-600 rounded-full filter blur-3xl opacity-5 z-0"></div>
                 </div>
-
-                {/* Filter Controls */}
-                <PortfolioFilter
-                    categories={categories}
-                    activeCategory={activeCategory}
-                    onCategoryChange={setActiveCategory}
-                />
-
-                {/* Portfolio Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {filteredItems.map((item) => (
-                        <PortfolioItem key={item.id} {...item} />
-                    ))}
-                </div>
-
-                {/* CTA Section */}
-                
-            </div>
-
-            {/* Background effects */}
-            <div className="fixed -bottom-40 -right-40 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl opacity-10 z-0"></div>
-            <div className="fixed top-1/4 -left-20 w-64 h-64 bg-purple-600 rounded-full filter blur-3xl opacity-5 z-0"></div>
-        </div>
+            </section>
+        </>
     );
 };
 

@@ -65,6 +65,7 @@ const ServicesCarousel = () => {
   };
 
   return (
+    <section id="services">
     <div className="bg-white py-12 px-4 md:px-8 w-full overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Vertical text on left side */}
@@ -132,6 +133,7 @@ const ServicesCarousel = () => {
         </div>
       </div>
     </div>
+    </section>
   );
 };
 

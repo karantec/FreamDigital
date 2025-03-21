@@ -2,6 +2,8 @@ import React from 'react';
 
 const About = () => {
     return (
+
+         <section id="aboutus">
         <div className="bg-black min-h-screen flex flex-col items-center justify-center text-white relative overflow-hidden p-4">
             {/* Main content container */}
             <div className="max-w-6xl w-full relative z-10">
@@ -52,6 +54,7 @@ const About = () => {
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl opacity-10"></div>
             <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-purple-600 rounded-full filter blur-3xl opacity-5"></div>
         </div>
+        </section>
     );
 };
 

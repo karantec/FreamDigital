@@ -100,6 +100,7 @@ const OurProducts = () => {
     };
 
     return (
+        <section id="products">
         <div className="bg-black py-16 px-4">
             <div className="max-w-6xl mx-auto">
                 {/* Section Header */}
@@ -170,6 +171,7 @@ const OurProducts = () => {
                 </div>
             </div>
         </div>
+        </section>
     );
 };
 

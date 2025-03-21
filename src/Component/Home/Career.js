@@ -299,6 +299,7 @@ const Career = () => {
     ];
 
     return (
+        <section id="careers">
         <div className="bg-black min-h-screen py-20 px-4 sm:px-8 relative">
             {/* Background gradient effect */}
             <div className="absolute inset-0 bg-gradient-to-b from-black via-blue-900/20 to-black opacity-80"></div>
@@ -332,6 +333,7 @@ const Career = () => {
                 </div>
             </div>
         </div>
+    </section>
     );
 };
 

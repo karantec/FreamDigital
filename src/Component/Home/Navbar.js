@@ -21,31 +21,66 @@ const HeroSection = () => {
     };
   }, [menuOpen]);
 
+  const handleScroll = () => {
+    const aboutSection = document.getElementById("aboutus");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section className="relative w-[100%] h-[80vh] bg-gradient-to-b from-blue-100 to-blue-500 overflow-hidden">
-      {/* Background image */}
+    <section
+      id="home"
+      className="relative w-[100%] h-[80vh] bg-gradient-to-b from-blue-100 to-blue-500 overflow-hidden"
+    >
       <img
         src="Home.png"
         alt="Background"
         className="absolute inset-0 w-full h-full object-cover opacity-50 z-0"
       />
 
-      {/* Desktop Navigation */}
-      <nav className="absolute top-6 left-1/2 transform -translate-x-1/2 hidden md:flex items-center  bg-opacity-90 rounded-full px-6 py-2 shadow-md z-10">
-        {["About Us", "Portfolio", "Services", "Products", "Contact Us"].map(
-          (item, index) => (
-            <a
-              key={index}
-              href="#"
-              className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-blue-600"
-            >
-              {item}
-            </a>
-          )
-        )}
+      <nav className="absolute top-6 left-1/2 transform -translate-x-1/2 hidden md:flex items-center bg-opacity-90 rounded-full px-6 py-2 shadow-md z-50 pointer-events-auto">
+        <a href="#home" className="pr-6">
+          <img src="logo.png" alt="Logo" className="h-10 w-auto" />
+        </a>
+        <a
+          href="#aboutus"
+          className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-blue-600"
+        >
+          About Us
+        </a>
+        <a
+          href="#portfolio"
+          className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-blue-600"
+        >
+          Portfolio
+        </a>
+        <a
+          href="#services"
+          className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-blue-600"
+        >
+          Services
+        </a>
+        <a
+          href="#products"
+          className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-blue-600"
+        >
+          Products
+        </a>
+        <a
+          href="#careers"
+          className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-blue-600"
+        >
+          Career
+        </a>
+        <a
+          href="#contactus"
+          className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-blue-600"
+        >
+          Contact Us
+        </a>
       </nav>
 
-      {/* Mobile Menu Button */}
       <div className="mobile-menu-container absolute top-6 left-6 z-30 md:hidden">
         <button
           onClick={() => setMenuOpen((prev) => !prev)}
@@ -59,33 +94,65 @@ const HeroSection = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <div
-        className={`mobile-menu fixed top-0 left-0 h-[80vh]  bg-opacity-95 shadow-lg z-40 w-64 transform transition-transform duration-300 ease-in-out ${
+        className={`mobile-menu fixed top-0 left-0 h-[80vh] bg-opacity-95 shadow-lg z-40 w-64 transform transition-transform duration-300 ease-in-out ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex justify-end p-4">
+        <div className="flex justify-between items-center p-4">
+          <a href="#home">
+            <img src="logo.png" alt="Logo" className="h-10 w-auto" />
+          </a>
           <button onClick={() => setMenuOpen(false)} className="p-2">
             <X className="h-6 w-6 text-gray-800" />
           </button>
         </div>
         <div className="flex flex-col space-y-4 p-4 text-white">
-          {["About Us", "Portfolio", "Services", "Products", "Contact Us"].map(
-            (item, index) => (
-              <a
-                key={index}
-                href="#"
-                className="text-lg font-medium text-white hover:text-blue-600 border-b border-gray-200 pb-2"
-              >
-                {item}
-              </a>
-            )
-          )}
+          <a
+            href="#home"
+            className="text-lg font-medium text-white hover:text-blue-600 border-b border-gray-200 pb-2"
+          >
+            Home
+          </a>
+          <a
+            href="#aboutus"
+            className="text-lg font-medium text-white hover:text-blue-600 border-b border-gray-200 pb-2"
+          >
+            About Us
+          </a>
+          <a
+            href="#portfolio"
+            className="text-lg font-medium text-white hover:text-blue-600 border-b border-gray-200 pb-2"
+          >
+            Portfolio
+          </a>
+          <a
+            href="#services"
+            className="text-lg font-medium text-white hover:text-blue-600 border-b border-gray-200 pb-2"
+          >
+            Services
+          </a>
+          <a
+            href="#products"
+            className="text-lg font-medium text-white hover:text-blue-600 border-b border-gray-200 pb-2"
+          >
+            Products
+          </a>
+          <a
+          href="#careers"
+          className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-blue-600"
+        >
+          Career
+        </a>
+          <a
+            href="#contactus"
+            className="text-lg font-medium text-white hover:text-blue-600 border-b border-gray-200 pb-2"
+          >
+            Contact Us
+          </a>
         </div>
       </div>
 
-      {/* Overlay when menu is open */}
       {menuOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
@@ -93,11 +160,9 @@ const HeroSection = () => {
         ></div>
       )}
 
-      {/* Hero Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
         <h1 className="text-6xl md:text-6xl lg:text-[100px] font-bold font-sans text-black mb-4">
           Supercharge Your <br />
-        
         </h1>
         <p className="text-blue-900 text-6xl py-6 font-bold">Business</p>
         <p className="text-2xl md:text-[15px] lg:text-[32px] font-medium text-black mb-8">
@@ -108,8 +173,10 @@ const HeroSection = () => {
         </button>
       </div>
 
-      {/* Scroll Down Indicator (Hidden on Mobile) */}
-      <div className="absolute bottom-5 md:bottom-10 left-1/2 transform -translate-x-1/2 text-center hidden sm:block">
+      <div
+        className="absolute bottom-5 md:bottom-10 left-1/2 transform -translate-x-1/2 text-center hidden sm:block cursor-pointer"
+        onClick={handleScroll}
+      >
         <img
           src="mouse.png"
           alt="Scroll Down"
