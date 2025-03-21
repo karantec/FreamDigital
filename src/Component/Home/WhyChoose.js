@@ -11,9 +11,9 @@ const WhyChooseUs = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
           {/* Left Side - Image */}
           <div className="w-full lg:w-1/2 flex justify-center">
-            <img 
-              src="about1.png" 
-              alt="Why Choose Us" 
+            <img
+              src="about1.png"
+              alt="Why Choose Us"
               className="w-[90%] max-w-sm md:max-w-md rounded-lg shadow-lg"
             />
           </div>
@@ -23,7 +23,8 @@ const WhyChooseUs = () => {
             {/* Card 1 - Affordable Price */}
             <div className="bg-gray-900 rounded-lg p-6 text-center">
               <div className="w-16 h-16 mb-4 mx-auto relative flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-70 rounded"></div>
+                {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-70 rounded"></div> */}
+                <img src="/money-stack.svg" alt="" className='w-full h-full' />
                 <div className="relative z-10 w-10 h-10 bg-white rounded transform rotate-12"></div>
               </div>
               <h3 className="text-lg font-medium mb-2">Affordable Price</h3>
@@ -36,7 +37,7 @@ const WhyChooseUs = () => {
             {/* Card 2 - Personal Connection */}
             <div className="bg-gray-900 rounded-lg p-6 text-center">
               <div className="w-16 h-16 mb-4 mx-auto relative flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-teal-400 opacity-70 rounded"></div>
+                <img src="/wallet.svg" alt="" className='w-full h-full' />
                 <div className="relative z-10 w-10 h-10 bg-white rounded"></div>
               </div>
               <h3 className="text-lg font-medium mb-2">Personal Connection</h3>
@@ -49,7 +50,7 @@ const WhyChooseUs = () => {
             {/* Card 3 - Industry Standard */}
             <div className="bg-gray-900 rounded-lg p-6 text-center">
               <div className="w-16 h-16 mb-4 mx-auto flex items-center justify-center">
-                <Check size={36} strokeWidth={3} className="text-blue-400" />
+                <img src="/e17.svg" alt="" className='w-full h-full' />
               </div>
               <h3 className="text-lg font-medium mb-2">Industry Standard</h3>
               <p className="text-sm text-gray-400">
@@ -61,7 +62,7 @@ const WhyChooseUs = () => {
             {/* Card 4 - 100% Trust */}
             <div className="bg-gray-900 rounded-lg p-6 text-center">
               <div className="w-16 h-16 mb-4 mx-auto flex items-center justify-center">
-                <ThumbsUp size={36} className="text-blue-400" />
+                <img src="/thumbs-up.svg" alt="" className='w-full h-full' />
               </div>
               <h3 className="text-lg font-medium mb-2">100% Trust</h3>
               <p className="text-sm text-gray-400">
