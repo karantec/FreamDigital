@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Logo and tagline */}
           <div className="md:w-1/3 mb-8 md:mb-0">
             <div className="text-4xl font-bold mb-4">
-                <img src="logo.png" alt="logo" className="h-16 w-16" />
+                <img src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1742667889/logodesign_bvyja6-removebg-preview_nw5ybx.png" alt="logo" className="h-16 w-16" />
             </div>
             <p className="text-sm md:text-base">
               With Our Collective Expertise, We Turn Ideas Into Reality. 

@@ -41,7 +41,7 @@ const HeroSection = () => {
 
       <nav className="absolute top-6 left-1/2 transform -translate-x-1/2 hidden md:flex items-center bg-opacity-90 rounded-full px-6 py-2 shadow-md z-50 pointer-events-auto">
         <a href="#home" className="pr-6">
-          <img src="logo.png" alt="Logo" className="h-10 w-auto" />
+          <img src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1742667889/logodesign_bvyja6-removebg-preview_nw5ybx.png" alt="Logo" className="h-10 w-auto" />
         </a>
         <a
           href="#aboutus"
@@ -101,7 +101,7 @@ const HeroSection = () => {
       >
         <div className="flex justify-between items-center p-4">
           <a href="#home">
-            <img src="logo.png" alt="Logo" className="h-10 w-auto" />
+            <img src="https://res.cloudinary.com/de4ks8mkh/image/upload/v1742667889/logodesign_bvyja6-removebg-preview_nw5ybx.png" alt="Logo" className="h-10 w-auto" />
           </a>
           <button onClick={() => setMenuOpen(false)} className="p-2">
             <X className="h-6 w-6 text-gray-800" />
