@@ -35,7 +35,7 @@ const HeroSection = () => {
     >
       <img
         src="Home.png"
-        alt="Background"
+        
         className="absolute inset-0 w-full h-full object-cover opacity-50 z-0"
       />
 
